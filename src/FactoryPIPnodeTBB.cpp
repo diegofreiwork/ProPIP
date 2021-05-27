@@ -56,7 +56,7 @@
 #include "tbb/mutex.h"
 #include "tbb/tick_count.h"
 
-#include "DebugUtils.hpp"
+// #include "DebugUtils.hpp"
 
 using namespace bpp;
 
@@ -897,7 +897,7 @@ void nodeTBB::DP3D_PIP_node() {
     // Initialisation of the data structure
     LKdata lkdata(d, h, h_compr, w, w_compr, numCatg, true);
     VLOG(1) << "DP3D_PIP at node: " << bnode_->getName()
-        << " lkdata size=" << DebugUtils::debugMemsizeMB(lkdata)
+//        << " lkdata size=" << DebugUtils::debugMemsizeMB(lkdata)
         <<" d=" << d
         <<" h=" << h
         <<" h_compr=" << h_compr
@@ -1290,7 +1290,7 @@ void nodeTBB::DP3D_PIP_nodeTask() {
     // Initialisation of the data structure
     LKdata lkdata(d, h, h_compr, w, w_compr, numCatg, true);
     VLOG(1) << "DP3D_PIP at node: " << bnode_->getName()
-        << " lkdata size=" << DebugUtils::debugMemsizeMB(lkdata)
+//        << " lkdata size=" << DebugUtils::debugMemsizeMB(lkdata)
         <<" d=" << d
         <<" h=" << h
         <<" h_compr=" << h_compr
