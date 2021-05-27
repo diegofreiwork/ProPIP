@@ -25,4 +25,12 @@ RUN git clone https://gitlab.com/libeigen/eigen.git; cd eigen; git checkout tags
 RUN wget https://github.com/01org/tbb/releases/download/2018_U5/tbb2018_20180618oss_lin.tgz;  tar xfz tbb2018_20180618oss_lin.tgz -C /opt/ ; rm -rf tbb2018_20180618oss_lin.tgz;
 
 # Build ProPIP
-RUN git clone https://github.com/acg-team/ProPIP.git; cd ProPIP; git checkout tbb; git pull; cmake -- -DCMAKE_BUILD_TYPE=Release  -DTBB_DIR=/opt/tbb2018_20180618oss/cmake/ CMakeLists.txt; make all; mv ProPIP /bin/ ; cd .. ;
+#RUN git clone https://github.com/acg-team/ProPIP.git; cd ProPIP; git checkout tbb; git pull; cmake -- -DCMAKE_BUILD_TYPE=Release  -DTBB_DIR=/opt/tbb2018_20180618oss/cmake/ CMakeLists.txt; make all; mv ProPIP /bin/ ; cd .. ;
+WORKDIR /opt/propip
+COPY . /opt/propip
+RUN  cmake -- -DCMAKE_BUILD_TYPE=Release  -DTBB_DIR=/opt/tbb2018_20180618oss/cmake/ CMakeLists.txt; make all; mv ProPIP /bin/ ; cd .. ;
+
+VOLUME /data
+WORKDIR /data
+
+ENTRYPOINT ["/bin/ProPIP"]
