@@ -56,7 +56,7 @@
 #include "Utilities.hpp"
 #include "Utils.hpp"
 
-#define SMALL_DOUBLE 1e-8
+#define SMALL_DOUBLE 1e-16
 #define GAP_CHAR '-'
 #define ERR_STATE (-999)
 #define DBL_EPSILON std::numeric_limits<double>::min()
